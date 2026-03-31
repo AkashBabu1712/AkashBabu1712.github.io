@@ -635,13 +635,12 @@
         revealElements.forEach(el => revealObserver.observe(el));
 
         // --- Gemini API Logic ---
-        const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent";
-        const apiKey = "AIzaSyCpnfCH0TVYElkQbwJvcMK3JyPnLrL101Q";
+        const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=AIzaSyCpnfCH0TVYElkQbwJvcMK3JyPnLrL101Q";
 
         async function fetchWithExponentialBackoff(url, options, maxRetries = 3, delay = 1000) {
             for (let i = 0; i < maxRetries; i++) {
                 try {
-                    const response = await fetchWithExponentialBackoff(`${API_URL}?key=${apiKey}`, options); 
+                    const response = await fetch(url, options); 
                     if (response.status === 429 || response.status >= 500) {
                         if (i === maxRetries - 1) throw new Error(`API failed after retries.`);
                         await new Promise(r => setTimeout(r, delay * (2 ** i)));
