@@ -1,796 +1,715 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-	<title>AKASH BABU PORTFOLIO</title>
-	<!-- add icon link -->
+    <title>Akash Babu | Portfolio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3281/3281307.png">
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#030712', 
+                            800: '#111827', 
+                            700: '#1f2937', 
+                        },
+                        accent: {
+                            cyan: '#06b6d4',
+                            blue: '#3b82f6',
+                            purple: '#8b5cf6'
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-	<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-	<link rel="stylesheet" href="css/animate.css">
+    <style>
+        body {
+            background-color: #030712;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
 
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
+        .glass {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-	<link rel="stylesheet" href="css/aos.css">
+        .glow-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glow-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.2), inset 0 0 0 1px rgba(6, 182, 212, 0.5);
+        }
 
-	<link rel="stylesheet" href="css/ionicons.min.css">
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            color: #06b6d4;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
 
-	<link rel="stylesheet" href="css/flaticon.css">
-	<link rel="stylesheet" href="css/icomoon.css">
-	<link rel="stylesheet" href="css/style.css">
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-
-
-	<style>
-		/*======================================
-//--//-->   ABOUT
-======================================*/
-
-		.about-mf .box-shadow-full {
-			padding-top: 4rem;
-			padding-bottom: 4rem;
-		}
-
-		.about-mf .about-img {
-			margin-bottom: 2rem;
-		}
-
-		.about-mf .about-img img {
-			margin-left: 10px;
-		}
-
-
-		.skill-mf .progress {
-			/* background-color: #cde1f8; */
-			margin: .5rem 0 1.2rem 0;
-			border-radius: 0;
-			height: .7rem;
-		}
-
-		.skill-mf .progress .progress-bar {
-			height: .7rem;
-			background-color: #ffbd39;
-		}
-
-
-		/* Animation styles */
-		#typing-animation {
-			position: relative;
-			font-size: 30px;
-			font-weight: bold;
-			color: rgb(255, 255, 255);
-			overflow: hidden;
-			white-space: nowrap;
-			animation: typing 3s steps(20, end) infinite;
-		}
-
-		#typing-animation:before {
-			content: "";
-			/* position: absolute; */
-			top: 0;
-			left: 0;
-			width: 0;
-			height: 100%;
-			background-color: #ccc;
-			animation: typing-cursor 0.5s ease-in-out infinite;
-		}
-
-		@keyframes typing {
-			from {
-				width: 0;
-			}
-
-			to {
-				width: 100%;
-			}
-		}
-
-		@keyframes typing-cursor {
-			from {
-				width: 5px;
-			}
-
-			to {
-				width: 0;
-			}
-		}
-
-
-		/* project image zoom effect */
-
-		.zoom-effect {
-			overflow: hidden;
-			transition: transform 0.3s ease-out;
-		}
-
-		.zoom-effect:hover {
-			transform: scale(1.1);
-		}
-	</style>
-
-		
-<style
-		 /*======================================
-//--//-->   DROPDOWN
-======================================*/
-
-	/* Dropdown container styling */
-	.nav-item.dropdown {
-		position: relative;
-	}
-
-	.nav-item.dropdown .dropdown-toggle {
-		background-color: #4CAF50;
-		color: white;
-		padding: 10px 20px;
-		font-size: 16px;
-		border: none;
-		border-radius: 5px;
-		cursor: pointer;
-		text-transform: uppercase;
-		transition: background-color 0.3s ease;
-	}
-
-	.nav-item.dropdown .dropdown-toggle:hover {
-		background-color:rgb(76, 145, 79);
-		color: white;
-	}
-
-	/* Dropdown menu items */
-	.nav-item.dropdown .dropdown-menu {
-		display: none;
-		position: absolute;
-		background-color:rgb(249, 249, 249);
-		min-width: 160px;
-		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-		border-radius: 5px;
-		padding: 0;
-		margin: 0;
-	}
-
-	.nav-item.dropdown .dropdown-item {
-		color: black;
-		padding: 12px 16px;
-		text-decoration: none;
-		display: block;
-		border-bottom: 1px solid #ddd;
-		text-transform: capitalize;
-	}
-
-	.nav-item.dropdown .dropdown-item:last-child {
-		border-bottom: none;
-	}
-
-	.nav-item.dropdown .dropdown-item:hover {
-		background-color:rgb(24, 138, 213);
-	}
-
-	/* Show dropdown menu on hover */
-	.nav-item.dropdown:hover .dropdown-menu {
-		display: block;
-	}
-</style>
-
-
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+    </style>
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body class="antialiased selection:bg-accent-cyan selection:text-white">
 
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-accent-purple/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-accent-cyan/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-accent-blue/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob" style="animation-delay: 4s;"></div>
+    </div>
 
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-    <div class="container">
-        <!-- Navbar Brand with Icon -->
-        <a class="navbar-brand" href="index.html">
-            <img src="https://cdn-icons-png.flaticon.com/512/3273/3273073.png" alt="Portfolio Logo" 
-                style="width: 30px; height: 30px; margin-right: 10px; vertical-align: middle;">
-            Akash Babu
-        </a>
-        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
-            data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-        </button>
+    <nav class="fixed top-6 left-0 right-0 z-50 px-4 flex justify-center transition-all duration-300">
+        <div class="glass rounded-full px-6 py-3 flex items-center justify-between w-full max-w-5xl shadow-2xl shadow-black/50">
+            <a href="#home" class="text-xl font-extrabold flex items-center gap-2 group">
+                <i class="fas fa-code text-accent-cyan group-hover:rotate-12 transition-transform"></i>
+                <span class="tracking-wide">AKASH<span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-blue">BABU</span></span>
+            </a>
 
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-                <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-                <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-                <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-				<li class="nav-item"><a href="https://github.com/AkashBabu1712" class="nav-link"><span>GitHub</span></a></li>
-                <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-                <li class="nav-item"><a href="https://www.kaggle.com/akashbabu17" class="nav-link"><span>Kaggle</span></a></li>
-                <!-- Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="codeProfilesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        CODE Profiles
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="codeProfilesDropdown">
-                        <a class="dropdown-item" href="https://www.hackerrank.com/profile/kumar111aakash_1">Hacker Rank</a>
-                        <a class="dropdown-item" href="https://leetcode.com/u/kumar111aakashin/">Leet Code</a>
-                        <a class="dropdown-item" href="https://www.codechef.com/users/brace_cape_44">Code Chef</a>
-                        <a class="dropdown-item" href="https://www.naukri.com/code360/profile/Cyberphantom">Coding Ninjas</a>
-						<a class="dropdown-item" href="https://tryhackme.com/r/p/kumar111aakash.i">TryHackMe</a>
+            <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white text-xl focus:outline-none ml-auto">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="hidden lg:flex items-center space-x-8 font-medium text-sm text-gray-300">
+                <li><a href="#home" class="hover:text-accent-cyan transition-colors">Home</a></li>
+                <li><a href="#about" class="hover:text-accent-cyan transition-colors">About</a></li>
+                <li><a href="#resume" class="hover:text-accent-cyan transition-colors">Resume</a></li>
+                <li><a href="#projects" class="hover:text-accent-cyan transition-colors">Projects</a></li>
+                <li><a href="https://medium.com/@kumar111aakash.in" target="_blank" class="hover:text-accent-purple transition-colors flex items-center gap-1">Blog <i class="fab fa-medium text-[12px]"></i></a></li>
+                
+                <li class="relative group py-2">
+                    <button class="flex items-center gap-1 hover:text-accent-cyan transition-colors">
+                        Coding Profiles <i class="fas fa-chevron-down text-[10px] mt-0.5"></i>
+                    </button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-dark-800 rounded-xl shadow-2xl border border-dark-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 overflow-hidden">
+                        <a href="https://www.hackerrank.com/profile/kumar111aakash_1" target="_blank" class="block px-4 py-3 text-sm hover:bg-dark-700 hover:text-accent-cyan transition-colors">Hacker Rank</a>
+                        <a href="https://leetcode.com/u/kumar111aakashin/" target="_blank" class="block px-4 py-3 text-sm hover:bg-dark-700 hover:text-accent-cyan transition-colors">Leet Code</a>
+                        <a href="https://www.codechef.com/users/brace_cape_44" target="_blank" class="block px-4 py-3 text-sm hover:bg-dark-700 hover:text-accent-cyan transition-colors">Code Chef</a>
+                        <a href="https://tryhackme.com/r/p/kumar111aakash.i" target="_blank" class="block px-4 py-3 text-sm hover:bg-dark-700 hover:text-accent-cyan transition-colors">TryHackMe</a>
                     </div>
                 </li>
+                <li><a href="#contact" class="hover:text-accent-cyan transition-colors">Contact</a></li>
             </ul>
         </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-dark-900/95 backdrop-blur-xl pt-32 px-8">
+        <div class="flex flex-col space-y-8 text-2xl font-bold text-center">
+            <a href="#home" class="mobile-link text-gray-400 hover:text-white transition-colors">Home</a>
+            <a href="#about" class="mobile-link text-gray-400 hover:text-white transition-colors">About</a>
+            <a href="#resume" class="mobile-link text-gray-400 hover:text-white transition-colors">Resume</a>
+            <a href="#projects" class="mobile-link text-gray-400 hover:text-white transition-colors">Projects</a>
+            <a href="https://medium.com/@kumar111aakash.in" target="_blank" class="mobile-link text-accent-purple hover:text-white transition-colors">Medium Blog</a>
+            <a href="#ai-tool" class="mobile-link text-gray-400 hover:text-white transition-colors">AI Tool</a>
+            <a href="#contact" class="mobile-link text-gray-400 hover:text-white transition-colors">Contact</a>
+        </div>
     </div>
-</nav>
 
-	<section id="home-section" class="hero">
-		<div class="home-slider  owl-carousel">
-			<div class="slider-item ">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end"
-						data-scrollax-parent="true">
-						<!-- <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_2.jpg);">
-	          	 <div class="overlay"></div>
-	          	</div> -->
-						<div class="one-forth d-flex  align-items-center ftco-animate"
-							data-scrollax=" properties: { translateY: '70%' }">
-							<div class="text">
-								<span class="subheading">Hello!</span>
-								<h1 class="mb-4 mt-3">I'm <span>Akash Babu</span></h1>
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 relative">
+        <div class="max-w-6xl w-full grid lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="order-2 lg:order-1 text-center lg:text-left reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan text-sm font-mono mb-6">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-cyan opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-cyan"></span>
+                    </span>
+                    Available for new opportunities
+                </div>
+                
+                <h1 class="text-5xl sm:text-7xl font-black tracking-tight mb-4">
+                    Transforming Data <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple">Into Intelligence.</span>
+                </h1>
+                
+                <div class="text-2xl sm:text-3xl font-light text-gray-400 mb-6 h-10">
+                    I'm a <span id="typing-text" class="font-semibold text-white typing-cursor font-mono"></span>
+                </div>
 
-								<!-- Element to contain animated typing -->
-								<span id="typing-animation"></span>
+                <p class="text-gray-400 text-lg mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                    Data Scientist with 3+ years of experience in building, deploying, and optimizing machine learning and AI solutions in finance and healthcare.
+                </p>
 
-								<script>
-
-									// Initialize the typing animation
-									const typingAnimationElement = document.getElementById('typing-animation');
-
-									// Create an array of typing text
-									const typingTexts = [
-										'Programmer Analyst  ',
-										'Tech Blogger  ',
-										'Data Scientist  ',
-										'Cybersecurity  ',
-									];
-
-									// Create a function to display the typing animation for a given text
-									function playTypingAnimation(text) {
-										// Loop through each character and add it to the element
-										for (let i = 0; i < text.length; i++) {
-											setTimeout(() => {
-												typingAnimationElement.textContent += text[i];
-											}, i * 200); // Increase the delay to slow down the typing animation
-										}
-
-										// Once the animation is complete, reset the text and start over
-										setTimeout(() => {
-											typingAnimationElement.textContent = '';
-											playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-										}, text.length * 200);
-									}
-
-									// Start the typing animation loop
-									playTypingAnimation(typingTexts[0]);
-
-								</script>
-
-								<br>
-								<br>
-								<h2>A Programmer Analyst</h2>
-								<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
-								<!-- <br> -->
-								<p><a href="https://medium.com/@kumar111aakash.in"
-										class="btn btn-primary py-3 px-4">MEDIUM BLOG👨🏽‍💻</a>
-									<a href="https://github.com/AkashBabu1712"
-										class="btn btn-white btn-outline-white py-3 px-4">My works</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-	<section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-		<div class="container">
-			<div class="row">
-				<div class="row d-flex align-items-stretch">
-					<!-- <div class="row d-flex"> -->
-					<div class="col-md-6 col-lg-5 d-flex">
-						<div class="img-about img d-flex align-items-stretch">
-							<div class="overlay">
-								<div class="row">
-									<div class="col-sm-6 col-md-5">
-										<div class="about-img">
-											<img src="./images/me.jpg" class="img-fluid rounded b-shadow-a"
-												alt="">
-										</div>
-									</div>
-									<!-- Details next to profile image -->
-									<div class="col-sm-6 col-md-7">
-										<div class="about-info">
-											<p><span class="title-s">Name: </span> <span>Akash Babu</span></p>
-											<p><span class="title-s">Job Role: </span> <span>Programmer Analyst</span>
-											</p>
-											<p><span class="title-s">Experience: </span> <span>3+ years</span></p>
-											<p><span class="title-s">Address: </span> <span>Noida, India</span></p>
-										</div>
-									</div>
-								</div>
-
-								<div class="skill-mf">
-									<p class="title-s"><b>SKILLS</b></p>
-									<span>SQL</span> <span class="pull-right">75%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 75%;"
-											aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-
-									<span>PYTHON | JAVA </span> <span class="pull-right">85%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%"
-											aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-
-									<span>Data Analysis | Visualization </span> <span
-										class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 90%"
-											aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-
-									<span>Statistical Analysis</span> <span class="pull-right">65%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 65%"
-											aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-
-									<span>Data Science | Machine Learning</span> <span class="pull-right">80%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 80%"
-											aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-						<div class="row justify-content-start pb-3">
-							<div class="col-md-12 heading-section ftco-animate">
-
-								<h1 class="big">About</h1>
-								<h2 class="mb-4">About Me</h2>
-
-								<p>Hello and welcome to my professional portfolio website!
-
-									I am a Programmer Analyst with a passion for leveraging technology to drive
-									efficient and effective solutions. With a solid background in programming and
-									analysis, I bring a unique blend of technical expertise and business acumen to
-									deliver high-quality results.
-
-									Throughout my career, I have demonstrated a strong proficiency in various
-									programming languages, including but not limited to Java, Python, and Data Science.
-									I possess a deep understanding of software development methodologies and frameworks,
-									and I am adept at translating business requirements into functional code.
-								</p>
-								<p>
-									Thank you for visiting my portfolio website, and I look forward to discussing
-									potential opportunities and collaborating on exciting projects in the future.
-								</p>
-								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Profile:</span> <span>Data Scientist &amp;
-											Programmer Analyst</span></li>
-									<!-- <li class="d-flex"><span>Domain:</span> <span>Retail, Ecommerce, BFSI &amp; Digital Marketing</span></li> -->
-									<li class="d-flex"><span>Education:</span> <span>Bachelor of Technology (CSE)</span></li>
-									<li class="d-flex"><span>Language:</span> <span>English, Hindi</span></li>
-									<!-- <li class="d-flex"><span>BI Tools:</span> <span>Microsoft Power BI, Looker &amp; Tableau</span></li> -->
-									<!-- <li class="d-flex"><span>Other Skills:</span> <span>Cloud, PySpark, Excel, Git, JIRA, Google Analytics &amp; SEO</span></li> -->
-									<li class="d-flex"><span>Interest:</span> <span>Traveling, Photography, Teaching, Blogging
-											Music, Outdoor Games ....</span></li>
-
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="counter-wrap ftco-animate d-flex mt-md-3">
-							<div class="text">
-								<p class="mb-4">
-									<span class="number" data-number="20">0</span> <span>+</span>
-									<span>&nbsp; Projects completed</span>
-								</p>
-								<p><a href="https://www.linkedin.com/in/akash-babu17/"
-										class="btn btn-primary py-3 px-3">LinkedIn</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-	<section class="ftco-section ftco-no-pb" id="resume-section">
-		<div class="container">
-			<div class="row justify-content-center pb-5">
-				<div class="col-md-10 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Resume</h1>
-					<h2 class="mb-4">Resume</h2>
-					<p>As a Programmer Analyst, I am skilled in designing and implementing complex software systems,
-						optimizing performance, and troubleshooting issues. I have a keen eye for detail and take pride
-						in delivering clean, maintainable, and scalable code.</p>
-				</div>
-			</div>
-
-			<div class="row">
-				<h1 class="big-4">Experience</h1>
-				<div class="underline"></div>
-			</div>
-			<br>
-
-			<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2023-Present</span>
-						<h2>Programmer Analyst | Data Scientist</h2>
-						<span class="position">Cognizant</span>
-						<p>
-            <ul>
-                <li><span class="icon">💡</span><span class="highlight"><b>Insight-Driven Solutions:</b></span> Designed and deployed machine learning models to predict key business metrics, fueling strategic decisions.</li>
-                <li><span class="icon">⚙️</span><span class="highlight"><b>Technical Excellence:</b></span> Applied advanced techniques like regression, classification, and clustering to solve business-critical challenges.</li>
-                <li><span class="icon">🔧</span><span class="highlight"><b>Efficiency at Scale:</b></span> Automated data pipelines and optimized feature engineering processes, boosting performance and scalability.</li>
-                <li><span class="icon">🤝</span><span class="highlight"><b>Collaboration:</b></span> Partnered with cross-functional teams to align ML models with business goals, achieving tangible results.</li>
-                <li><span class="icon">📊</span><span class="highlight"><b>Impact:</b></span> Delivered actionable insights to stakeholders, improving decision-making and reducing costs.</li>
-            </ul>
-						</p>
-					</div>
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2022</span>
-						<h2>CyberSecurity | SailPoint | IAM </h2>
-						<span class="position">Cognizant</span>
-						<p>
-						<ul>
-							<li><span class="icon">🔍</span><span class="highlight"><b>Identity Governance Champion:</b></span> Designed and implemented SailPoint IdentityIQ solutions across diverse industries.</li>
-                <li><span class="icon">⚡</span><span class="highlight"><b>Operational Boost:</b></span> Automated user provisioning and access certifications, achieving a <span class="highlight"><b>25% efficiency gain</b></span>.</li>
-                <li><span class="icon">🔗</span><span class="highlight"><b>Seamless Integrations:</b></span> Customized workflows to integrate SailPoint with LDAP, Active Directory, and third-party apps.</li>
-                <li><span class="icon">📘</span><span class="highlight"><b>Best Practices Advocate:</b></span> Conducted rigorous code reviews and authored detailed documentation, ensuring adherence to security standards.</li>
-                <li><span class="icon">💡</span><span class="highlight"><b>Technical Innovations:</b></span> Pioneered RBAC model implementation, optimizing user access and compliance workflows.</li>
-						</ul>
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-			<br>
-			<br>
-
-			<div class="row">
-				<h1 class="big-4">Education</h1>
-				<div class="underline"></div>
-			</div>
-			<br>
-
-			<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2017-2021</span>
-						<h2>Bachelor of Technology</h2>
-						<span class="position">Dr. Ambedkar Institute of Technology</span>
-						<p class="mt-4">Grade: 7.31</p>
-					</div>
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2015-2016</span>
-						<h2>Higher Secondary School</h2>
-						<span class="position"> Baba Kadhera Singh Vidya Mandir,
-							MATHURA</span>
-						<p class="mt-4">Grade: First class distinction.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row justify-content-center mt-5">
-				<div class="col-md-6 text-center ftco-animate">
-					<p><a href="https://1drv.ms/w/s!Asual_aiPaSZgQSv_nr3ydYbTNie?e=3lmkCn"
-							class="btn btn-primary py-4 px-5">Download CV</a></p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-	<section class="ftco-section" id="project-section">
-		<div class="container">
-			<div class="row justify-content-center mb-5 pb-5">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Projects</h1>
-					<h2 class="mb-4">Projects</h2>
-					<p>Below are the sample Projects on Python, Machine Learning, Data Science.</p>
-				</div>
-			</div>
-			<div class="row d-flex">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://github.com/AkashBabu1712/Data-science-project-/blob/main/Prediction_of_Sales_Data.ipynb"
-							class="block-20 zoom-effect" style="background-image: url('images/Proj_1.png');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-
-							<h3 class="heading"><a
-									href="https://github.com/AkashBabu1712/Data-science-project-/blob/main/Prediction_of_Sales_Data.ipynb">Supermarket
-									Sales Data Analysis</a></h3>
-							<p>Analyzed SuperMarket Sales data to find the relationship between different Attributes to
-								find valuable insights </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://github.com/AkashBabu1712/Data-science-project-/blob/main/Analysis_of_tips_data_of_Waiter_with_Machine_Learning.ipynb"
-							class="block-20 zoom-effect" style="background-image: url('images/Proj_2.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-
-							<h3 class="heading"><a
-									href="https://github.com/AkashBabu1712/Data-science-project-/blob/main/Analysis_of_tips_data_of_Waiter_with_Machine_Learning.ipynb">Prediction
-									of Tips data with Machine Learning</a></h3>
-							<p>Performed exploratory data analysis on Waiter and Tips given using Python to improve the
-								customer experience.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry">
-						<a href="https://github.com/AkashBabu1712/Power-Bi/blob/main/SuperMarket%20Sales%20Dashboard.pdf"
-							class="block-20 zoom-effect" style="background-image: url('images/proj_3.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-
-							<h3 class="heading"><a
-									href="https://github.com/AkashBabu1712/Power-Bi/blob/main/SuperMarket%20Sales%20Dashboard.pdf">Power
-									BI
-									Market data dashboard Project</a></h3>
-							<p>Designed a power Bi dashboard for analysis the Market data.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<br>
-			<!-- added justify-content-center to center align the last two projects -->
-			<div class="row d-flex justify-content-center">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://github.com/AkashBabu1712/Data-science-project-/blob/main/Statistics%20Project%20on%20Hypothesis%20Testing.ipynb"
-							class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-
-							<h3 class="heading"><a
-									href="https://github.com/AkashBabu1712/Data-science-project-/blob/main/Statistics%20Project%20on%20Hypothesis%20Testing.ipynb">Data-Driven
-									Insights for Maximizing Revenue in Taxi Booking Sector</a></h3>
-							<p>The primary goal was to leverage data-driven insights to understand how payment methods
-								influence fare amounts, with a focus on maximizing revenue for taxi drivers while
-								maintaining a positive customer experience.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://github.com/AkashBabu1712/Kaggle_Work_Notebooks/blob/main/obesity-risk-prediction.ipynb"
-							class="block-20 zoom-effect" style="background-image: url('images/proj_5.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-
-							<h3 class="heading"><a
-									href="https://github.com/AkashBabu1712/Kaggle_Work_Notebooks/blob/main/obesity-risk-prediction.ipynb">Obesity
-									Risk Prediction - A Kaggle competition</a></h3>
-							<p>The "Obesity Risk Prediction" Kaggle competition challenges participants to develop
-								machine learning models that predict obesity risk based on demographic, lifestyle, and
-								health data, offering a chance to address a key public health issue.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-
-	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-		<div class="container">
-			<div class="row d-md-flex align-items-center">
-				<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-					<div class="block-18">
-						<div class="text">
-							<strong class="number" data-number="20">0</strong>
-							<span>Achievements</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-					<div class="block-18">
-						<div class="text">
-							<strong class="number" data-number="15">0</strong>
-							<span>Projects</span>
-						</div>
-					</div>
-				</div>
-				<!-- <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="1000">0</strong>
-                <span>Mentored Students</span>
-              </div>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                    <a href="#projects" class="px-8 py-4 bg-white text-dark-900 font-bold rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300">
+                        View Projects
+                    </a>
+                    <a href="https://github.com/AkashBabu1712" target="_blank" class="px-8 py-4 glass text-white font-bold rounded-full hover:border-accent-cyan hover:text-accent-cyan transition-all duration-300 flex items-center gap-2">
+                        GitHub <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://medium.com/@kumar111aakash.in" target="_blank" class="px-8 py-4 glass text-white font-bold rounded-full hover:border-accent-purple hover:text-accent-purple transition-all duration-300 flex items-center gap-2">
+                        Medium <i class="fab fa-medium"></i>
+                    </a>
+                </div>
             </div>
-          </div> -->
-				<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-					<div class="block-18">
-						<div class="text">
-							<strong class="number" data-number="200">0</strong>
-							<span>Cups of coffee</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+            
+            <div class="order-1 lg:order-2 flex justify-center lg:justify-end reveal">
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96 animate-float">
+                    <div class="absolute inset-0 rounded-full border border-dark-700 animate-[spin_10s_linear_infinite]"></div>
+                    <div class="absolute inset-4 rounded-full border border-dashed border-accent-cyan/30 animate-[spin_15s_linear_infinite_reverse]"></div>
+                    
+                    <img src="./images/me.jpg" alt="Akash Babu" class="absolute inset-8 rounded-full object-cover border-4 border-dark-800 shadow-[0_0_40px_rgba(6,182,212,0.3)]" onerror="this.src='https://placehold.co/400x400/1f2937/06b6d4?text=Akash'">
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-			<!-- <div class="container"> -->
-			<div class="row justify-content-center">
-				<div class="col-md-7 ftco-animate text-center">
-					<h2>More projects on<span> Github </span> </h2>
-					<div class="heading">
-						<h4> I love to solve challenging problems &amp; uncover hidden data stories insights
-						</h4>
-						<br>
-						<p><a href="https://github.com/AkashBabu1712" class="btn btn-primary py-3 px-5">GitHub</a></p>
-					</div>
-				</div>
-			</div>
-			<!-- </div> -->
-		</div>
-	</section>
+    <section id="about" class="py-24 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-mono text-accent-cyan tracking-widest uppercase mb-2">Get to know me</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">About & <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-blue">Expertise</span></h3>
+            </div>
 
+            <div class="grid lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-2 glow-card glass rounded-3xl p-8 reveal">
+                    <div class="w-12 h-12 bg-accent-cyan/10 rounded-xl flex items-center justify-center text-accent-cyan text-2xl mb-6">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        I am a Data Scientist and Programmer Analyst with a passion for leveraging technology to drive efficient solutions. With a solid background in programming and data analysis, I bring a unique blend of technical expertise and business acumen to deliver high-quality results.
+                    </p>
+                    <ul class="space-y-4 text-sm font-mono text-gray-400">
+                        <li class="flex items-center gap-3"><i class="fas fa-terminal text-accent-cyan"></i> Noida, Uttar Pradesh, India</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-graduation-cap text-accent-cyan"></i> B.Tech in Computer Science Engineering</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-envelope text-accent-cyan"></i> kumar111aakash.in@gmail.com</li>
+                    </ul>
+                </div>
 
+                <div class="lg:col-span-3 grid sm:grid-cols-2 gap-4 reveal" style="transition-delay: 200ms;">
+                    
+                    <div class="glow-card bg-dark-800 border border-dark-700 rounded-3xl p-6">
+                        <h4 class="text-white font-bold mb-4 flex justify-between">
+                            Machine Learning & AI <span class="text-accent-cyan font-mono text-sm">90%</span>
+                        </h4>
+                        <div class="h-1.5 w-full bg-dark-900 rounded-full overflow-hidden mb-3">
+                            <div class="h-full bg-gradient-to-r from-accent-cyan to-accent-blue rounded-full" style="width: 90%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500">Regression, Classification, Deep Learning, TensorFlow, Keras, Scikit-learn, LangChain, LLMs</p>
+                    </div>
 
-	<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-		<div class="container">
-			<div class="row justify-content-center mb-5 pb-3">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Contact</h1>
-					<h2 class="mb-4">Contact Me</h2>
-					<p>Below are the details to reach out to me!</p>
-				</div>
-			</div>
+                    <div class="glow-card bg-dark-800 border border-dark-700 rounded-3xl p-6">
+                        <h4 class="text-white font-bold mb-4 flex justify-between">
+                            Data Eng. & Cloud <span class="text-accent-cyan font-mono text-sm">85%</span>
+                        </h4>
+                        <div class="h-1.5 w-full bg-dark-900 rounded-full overflow-hidden mb-3">
+                            <div class="h-full bg-gradient-to-r from-accent-cyan to-accent-blue rounded-full" style="width: 85%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500">Python, SQL, AWS (EC2, S3), PySpark, CI/CD, Docker, Pipeline Optimization</p>
+                    </div>
 
-			<div class="row d-flex contact-info mb-5">
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-map-signs"></span>
-						</div>
-						<h3 class="mb-4">Address</h3>
-						<p>Noida, India</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-phone2"></span>
-						</div>
-						<h3 class="mb-4">Contact Number</h3>
-						<p><a href="tel://0101010101">+ 91 6393317305</a></p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-envelope"></span>
-						</div>
-						<h3 class="mb-4">Email Address</h3>
-						<p><a href="mailto:info@yoursite.com">kumar111aakash.in@gmail.com</a></p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-file"></span>
-						</div>
-						<h3 class="mb-4">Download Resume</h3>
-						<p><a
-								href="https://drive.google.com/file/d/1WRWXehSrG_PdfEGpW_5XlxpuDP8qEFXj/view?usp=drive_link">resumelink</a>
-						</p>
-					</div>
-				</div>
+                    <div class="glow-card bg-dark-800 border border-dark-700 rounded-3xl p-6">
+                        <h4 class="text-white font-bold mb-4 flex justify-between">
+                            Data Visualization <span class="text-accent-cyan font-mono text-sm">90%</span>
+                        </h4>
+                        <div class="h-1.5 w-full bg-dark-900 rounded-full overflow-hidden mb-3">
+                            <div class="h-full bg-gradient-to-r from-accent-cyan to-accent-blue rounded-full" style="width: 90%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500">PowerBI, Seaborn, Matplotlib, Pandas, NumPy</p>
+                    </div>
 
-				<div class="container">
-					<br>
-					<br>
-					<div class="row justify-content-center">
-						<div class="col-md-7 ftco-animate text-center">
-							<h2>Have a<span> Question? </span> <a
-									href="https://forms.gle/68dXxdffmQSepRBu7"
-									class="btn btn-primary py-3 px-5">Click Here</a> </h2>
-						</div>
-					</div>
-					<br>
-					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
-						<li class="ftco-animate normal-txt">Find me on </li>
-						<!-- <li class="ftco-animate"><a href="https://www.youtube.com/@RishabhMishraOfficial"><span class="icon-youtube"></span></a></li> -->
-						<li class="ftco-animate"><a href="https://www.linkedin.com/in/akash-babu17/"><span
-									class="icon-linkedin"></span></a></li>
-						<li class="ftco-animate"><a href="https://twitter.com/akashba77998089"><span
-									class="icon-twitter"></span></a></li>
-						<li class="ftco-animate"><a href="https://m.facebook.com/profile.php?id=100058647168781"><span
-									class="icon-facebook"></span></a></li>
-						<li class="ftco-animate"><a href="https://www.instagram.com/kumar111aakash.in/"><span
-									class="icon-instagram"></span></a></li>
-					</ul>
-					<br>
-				</div>
-			</div>
-	</section>
+                    <div class="glow-card bg-dark-800 border border-dark-700 rounded-3xl p-6">
+                        <h4 class="text-white font-bold mb-4 flex justify-between">
+                            Cybersecurity <span class="text-accent-cyan font-mono text-sm">75%</span>
+                        </h4>
+                        <div class="h-1.5 w-full bg-dark-900 rounded-full overflow-hidden mb-3">
+                            <div class="h-full bg-gradient-to-r from-accent-cyan to-accent-blue rounded-full" style="width: 75%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500">Ethical Hacking, Vulnerability Assessment, Security Auditing, Burp Suite, Linux</p>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="resume" class="py-24 px-6 relative z-10 bg-dark-800/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-mono text-accent-purple tracking-widest uppercase mb-2">My Journey</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">Professional <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-accent-cyan">Experience</span></h3>
+            </div>
 
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-dark-700 before:to-transparent">
+                
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-900 bg-accent-cyan text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <i class="fas fa-shield-alt text-sm"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glow-card glass p-6 rounded-2xl border border-dark-700">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                            <h4 class="font-bold text-xl text-white">Cyber Security & Ethical Hacking Intern</h4>
+                            <span class="text-sm font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">Nov 2025 - Dec 2025</span>
+                        </div>
+                        <p class="text-gray-400 font-medium mb-4">Codtech IT Solutions Private Limited</p>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li>Completed a 4-week intensive program focused on Cyber Security protocols and Ethical Hacking methodologies.</li>
+                            <li>Demonstrated strong technical skills in vulnerability assessment and security auditing.</li>
+                        </ul>
+                    </div>
+                </div>
 
-	<footer class="ftco-footer ftco-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-900 bg-accent-purple text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <i class="fas fa-robot text-sm"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glow-card glass p-6 rounded-2xl border border-dark-700">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                            <h4 class="font-bold text-xl text-white">AI/ML Intern</h4>
+                            <span class="text-sm font-mono text-accent-purple bg-accent-purple/10 px-2 py-1 rounded">Oct 2025 - Nov 2025</span>
+                        </div>
+                        <p class="text-gray-400 font-medium mb-4">Labmentix Pvt. Ltd</p>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li>Applied advanced machine learning algorithms to real-world scenarios, conducting hyperparameter tuning to optimize model accuracy.</li>
+                        </ul>
+                    </div>
+                </div>
 
-					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;
-						<script>document.write(new Date().getFullYear());</script> All rights reserved <i
-							class="icon-heart color-danger" aria-hidden="true"></i> by <a href="#" target="_blank">Akash
-							Babu</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-900 bg-accent-blue text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <i class="fas fa-chart-line text-sm"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glow-card glass p-6 rounded-2xl border border-dark-700">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                            <h4 class="font-bold text-xl text-white">Data Scientist</h4>
+                            <span class="text-sm font-mono text-accent-blue bg-accent-blue/10 px-2 py-1 rounded">Jan 2022 - Feb 2025</span>
+                        </div>
+                        <p class="text-gray-400 font-medium mb-4">Cognizant</p>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li>Boosted model performance by 30% using advanced feature engineering and hyperparameter tuning.</li>
+                            <li>Built scalable data pipelines and deployed models via AWS EC2/S3 and CI/CD workflows.</li>
+                            <li>Integrated LLMs and supervised ML for classification, segmentation, and risk assessment.</li>
+                            <li>Automated reporting processes, reducing manual effort by 40%.</li>
+                        </ul>
+                    </div>
+                </div>
 
+            </div>
 
-	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-				stroke="#F96D00" />
-		</svg></div>
+            <div class="mt-20 grid md:grid-cols-2 gap-8 reveal">
+                <div class="glow-card glass p-8 rounded-3xl border border-dark-700">
+                    <h3 class="text-2xl font-bold mb-6 text-white border-b border-dark-700 pb-3"><i class="fas fa-graduation-cap text-accent-cyan mr-2"></i> Education</h3>
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-white">B.Tech in Computer Science Engineering</h4>
+                        <p class="text-gray-400">Dr. APJ Abdul Kalam Technical University, Kanpur</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-sm font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">2017 - 2021</span>
+                            <span class="text-sm font-mono text-gray-400">CGPA: 7.31/10</span>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="glow-card glass p-8 rounded-3xl border border-dark-700">
+                    <h3 class="text-2xl font-bold mb-6 text-white border-b border-dark-700 pb-3"><i class="fas fa-certificate text-accent-purple mr-2"></i> Certifications</h3>
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-white">5-Day AI Agents Intensive Course</h4>
+                        <p class="text-gray-400 mb-2">Google Kaggle & Google</p>
+                        <span class="text-sm font-mono text-accent-purple bg-accent-purple/10 px-2 py-1 rounded">Dec 2025</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center reveal">
+                <a href="https://drive.google.com/file/d/1yv1q3wzN-2h9_0omgLmgm8wfSQ0abmp-/view?usp=drive_link" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-dark-800 border border-accent-cyan/50 text-white font-bold rounded-full hover:bg-accent-cyan hover:text-dark-900 transition-all duration-300">
+                    Download Full Resume <i class="fas fa-file-download"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/jquery.stellar.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/jquery.animateNumber.min.js"></script>
-	<script src="js/scrollax.min.js"></script>
+    <section id="projects" class="py-24 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-mono text-accent-blue tracking-widest uppercase mb-2">Showcase</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">Featured <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-cyan">Projects</span></h3>
+            </div>
 
-	<script src="js/main.js"></script>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="group glow-card bg-dark-800 border border-dark-700 rounded-3xl overflow-hidden reveal">
+                    <div class="h-52 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('images/Proj_1.png'); background-color: #1f2937;"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-800 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-1 bg-dark-700 text-gray-300 rounded">Data Analytics</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Supermarket Sales Analysis</h4>
+                        <p class="text-sm text-gray-400 mb-6 line-clamp-2">Analyzed SuperMarket Sales data to find the relationship between different Attributes to uncover valuable business insights.</p>
+                        <a href="https://github.com/AkashBabu1712/Data-science-project-/blob/main/Prediction_of_Sales_Data.ipynb" target="_blank" class="text-sm font-bold text-accent-cyan flex items-center gap-2 group-hover:gap-3 transition-all">
+                            View Notebook <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
+                <div class="group glow-card bg-dark-800 border border-dark-700 rounded-3xl overflow-hidden reveal" style="transition-delay: 100ms;">
+                    <div class="h-52 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('images/Proj_2.jpg'); background-color: #1f2937;"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-800 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-1 bg-dark-700 text-gray-300 rounded">Machine Learning</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Waiters Tip Prediction</h4>
+                        <p class="text-sm text-gray-400 mb-6 line-clamp-2">Performed exploratory data analysis on Waiter and Tips given using Python to improve the customer experience.</p>
+                        <a href="https://github.com/AkashBabu1712/Data-science-project-/blob/main/Analysis_of_tips_data_of_Waiter_with_Machine_Learning.ipynb" target="_blank" class="text-sm font-bold text-accent-cyan flex items-center gap-2 group-hover:gap-3 transition-all">
+                            View Notebook <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group glow-card bg-dark-800 border border-dark-700 rounded-3xl overflow-hidden reveal" style="transition-delay: 200ms;">
+                    <div class="h-52 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('images/proj_3.jpg'); background-color: #1f2937;"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-800 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-1 bg-dark-700 text-gray-300 rounded">Power BI</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Market Data Dashboard</h4>
+                        <p class="text-sm text-gray-400 mb-6 line-clamp-2">Designed an interactive Power BI dashboard for analyzing market data and visualizing key business metrics.</p>
+                        <a href="https://github.com/AkashBabu1712/Power-Bi/blob/main/SuperMarket%20Sales%20Dashboard.pdf" target="_blank" class="text-sm font-bold text-accent-cyan flex items-center gap-2 group-hover:gap-3 transition-all">
+                            View Dashboard <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group glow-card bg-dark-800 border border-dark-700 rounded-3xl overflow-hidden reveal">
+                    <div class="h-52 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('images/proj_4.jpg'); background-color: #1f2937;"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-800 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-1 bg-dark-700 text-gray-300 rounded">Statistics</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Taxi Revenue Hypothesis</h4>
+                        <p class="text-sm text-gray-400 mb-6 line-clamp-2">Leveraged data-driven insights and Hypothesis Testing to understand how payment methods influence fare amounts to maximize revenue.</p>
+                        <a href="https://github.com/AkashBabu1712/Data-science-project-/blob/main/Statistics%20Project%20on%20Hypothesis%20Testing.ipynb" target="_blank" class="text-sm font-bold text-accent-cyan flex items-center gap-2 group-hover:gap-3 transition-all">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group glow-card bg-dark-800 border border-dark-700 rounded-3xl overflow-hidden reveal" style="transition-delay: 100ms;">
+                    <div class="h-52 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('images/proj_5.jpg'); background-color: #1f2937;"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-800 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-1 bg-dark-700 text-gray-300 rounded">Kaggle</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Obesity Risk Prediction</h4>
+                        <p class="text-sm text-gray-400 mb-6 line-clamp-2">Developed machine learning models to predict obesity risk based on demographic, lifestyle, and health data.</p>
+                        <a href="https://github.com/AkashBabu1712/Kaggle_Work_Notebooks/blob/main/obesity-risk-prediction.ipynb" target="_blank" class="text-sm font-bold text-accent-cyan flex items-center gap-2 group-hover:gap-3 transition-all">
+                            View Competition <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-tool" class="py-24 px-6 relative z-10 bg-gradient-to-b from-transparent to-dark-800">
+        <div class="max-w-4xl mx-auto reveal">
+            <div class="glass border border-accent-purple/30 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-10 bg-dark-900 border-b border-dark-700 flex items-center px-4 gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="mx-auto text-xs font-mono text-gray-500">gemini-api-terminal</span>
+                </div>
+
+                <div class="pt-8 text-center mb-8">
+                    <h2 class="text-3xl font-bold text-white mb-2 flex items-center justify-center gap-3">
+                        <i class="fas fa-robot text-accent-purple"></i> Ask the Tech Explainer
+                    </h2>
+                    <p class="text-gray-400">Quickly get professional, concise explanations for any technical term mentioned in my resume or any other IT concept.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="relative">
+                        <i class="fas fa-terminal absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                        <input type="text" id="tech-query" placeholder="e.g., What is LangChain or prompt engineering?" class="w-full bg-dark-900 border border-dark-700 rounded-xl py-4 pl-12 pr-4 text-white font-mono focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple transition-all" onkeypress="if(event.key === 'Enter') generateExplanation()">
+                    </div>
+                    
+                    <button id="generate-btn" onclick="generateExplanation()" class="w-full py-4 bg-gradient-to-r from-accent-purple to-accent-blue hover:from-accent-blue hover:to-accent-cyan text-white font-bold rounded-xl shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-300">
+                        Generate Explanation ✨
+                    </button>
+                </div>
+
+                <div id="loading-spinner" class="hidden text-center mt-8">
+                    <i class="fas fa-circle-notch fa-spin text-3xl text-accent-purple mb-2"></i>
+                    <p class="text-sm font-mono text-accent-purple animate-pulse">Processing request...</p>
+                </div>
+
+                <div id="ai-output-card" class="hidden mt-8 bg-dark-900 rounded-xl p-6 border border-dark-700">
+                    <div class="flex items-center gap-2 mb-4 text-accent-cyan border-b border-dark-700 pb-2">
+                        <i class="fas fa-bolt"></i> <span class="font-bold font-mono">Response Output</span>
+                    </div>
+                    <div id="ai-response" class="text-gray-300 text-sm leading-relaxed font-mono">
+                        </div>
+                </div>
+                
+                <p class="text-[10px] text-center text-gray-600 mt-6 font-mono">* Note: Requires valid Gemini API key configured in the source code.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-sm font-mono text-accent-cyan tracking-widest uppercase mb-2 reveal">What's Next?</h2>
+            <h3 class="text-4xl md:text-5xl font-bold mb-16 reveal">Get In <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-blue">Touch</span></h3>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-16 reveal">
+                <a href="mailto:kumar111aakash.in@gmail.com" class="glow-card glass p-8 rounded-3xl border border-dark-700 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-2xl text-accent-cyan mb-4">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="text-white font-bold mb-2">Email Me</h4>
+                    <p class="text-sm text-gray-400 truncate w-full">kumar111aakash.in@gmail.com</p>
+                </a>
+                
+                <a href="tel:+916393317305" class="glow-card glass p-8 rounded-3xl border border-dark-700 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-2xl text-accent-cyan mb-4">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4 class="text-white font-bold mb-2">Call Me</h4>
+                    <p class="text-sm text-gray-400">+91 6393317305</p>
+                </a>
+
+                <div class="glow-card glass p-8 rounded-3xl border border-dark-700 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-2xl text-accent-cyan mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="text-white font-bold mb-2">Location</h4>
+                    <p class="text-sm text-gray-400">Noida, India</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 reveal">
+                <a href="https://www.linkedin.com/in/akash-babu17/" target="_blank" class="w-14 h-14 rounded-full glass border border-dark-700 flex items-center justify-center text-xl text-gray-400 hover:text-white hover:bg-[#0A66C2] hover:border-[#0A66C2] transition-all transform hover:-translate-y-2"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/AkashBabu1712" target="_blank" class="w-14 h-14 rounded-full glass border border-dark-700 flex items-center justify-center text-xl text-gray-400 hover:text-white hover:bg-[#333] hover:border-[#333] transition-all transform hover:-translate-y-2"><i class="fab fa-github"></i></a>
+                <a href="https://medium.com/@kumar111aakash.in" target="_blank" class="w-14 h-14 rounded-full glass border border-dark-700 flex items-center justify-center text-xl text-gray-400 hover:text-white hover:bg-[#000000] hover:border-[#ffffff] transition-all transform hover:-translate-y-2"><i class="fab fa-medium-m"></i></a>
+                <a href="https://twitter.com/akashba77998089" target="_blank" class="w-14 h-14 rounded-full glass border border-dark-700 flex items-center justify-center text-xl text-gray-400 hover:text-white hover:bg-[#1DA1F2] hover:border-[#1DA1F2] transition-all transform hover:-translate-y-2"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/kumar111aakash.in/" target="_blank" class="w-14 h-14 rounded-full glass border border-dark-700 flex items-center justify-center text-xl text-gray-400 hover:text-white hover:bg-[#E1306C] hover:border-[#E1306C] transition-all transform hover:-translate-y-2"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-dark-800 bg-dark-900 text-center relative z-10">
+        <p class="text-gray-500 text-sm font-mono">
+            &copy; <span id="year"></span> <span class="text-white">Akash Babu</span>. Engineered with precision.
+        </p>
+    </footer>
+
+    <script>
+        // Set Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Typing Animation Logic
+        const words = ['Data Scientist', 'AI/ML Specialist', 'Cybersecurity Engineer', 'Tech Writer & Blogger'];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split('');
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typing-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000); 
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split('');
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typing-text').innerHTML = word.join('');
+                } else {
+                    i = (i + 1) % words.length;
+                    setTimeout(typingEffect, 500); 
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // Scroll Reveal Animation 
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // --- Gemini API Logic ---
+        const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent";
+        const apiKey = "AIzaSyCpnfCH0TVYElkQbwJvcMK3JyPnLrL101Q";
+
+        async function fetchWithExponentialBackoff(url, options, maxRetries = 3, delay = 1000) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetchWithExponentialBackoff(`${API_URL}?key=${apiKey}`, options); 
+                    if (response.status === 429 || response.status >= 500) {
+                        if (i === maxRetries - 1) throw new Error(`API failed after retries.`);
+                        await new Promise(r => setTimeout(r, delay * (2 ** i)));
+                        continue;
+                    }
+                    if (!response.ok) throw new Error(`API error ${response.status}`);
+                    return response;
+                } catch (error) {
+                    if (i === maxRetries - 1) throw error;
+                    await new Promise(r => setTimeout(r, delay * (2 ** i)));
+                }
+            }
+        }
+
+        async function generateExplanation() {
+            const queryInput = document.getElementById('tech-query');
+            const outputCard = document.getElementById('ai-output-card');
+            const outputDiv = document.getElementById('ai-response');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const generateBtn = document.getElementById('generate-btn');
+            const userQuery = queryInput.value.trim();
+
+            if (!userQuery) {
+                outputDiv.innerHTML = '<span class="text-yellow-400">> Error: Input cannot be empty.</span>';
+                outputCard.classList.remove('hidden');
+                return;
+            }
+
+            loadingSpinner.classList.remove('hidden');
+            generateBtn.disabled = true;
+            generateBtn.classList.add('opacity-50');
+            outputCard.classList.add('hidden');
+            outputDiv.innerHTML = '';
+
+            const systemPrompt = "You are a highly knowledgeable Data Scientist acting as a concise technical tutor. Provide brief, professional explanations for tech concepts. Limit to one short paragraph.";
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            };
+
+            try {
+                const response = await fetchWithExponentialBackoff(API_URL, options);
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    let formattedHtml = `<div class="mb-2 text-gray-500">> Executing query: "${userQuery}"</div>`;
+                    formattedHtml += `<div class="text-accent-cyan">> Result found:</div>`;
+                    formattedHtml += `<p class="mt-2 pl-4 border-l-2 border-accent-purple">${candidate.content.parts[0].text}</p>`;
+                    outputDiv.innerHTML = formattedHtml;
+                } else {
+                    throw new Error("No response generated.");
+                }
+            } catch (error) {
+                console.error(error);
+                outputDiv.innerHTML = `<span class="text-red-400">> System Failure: Unable to fetch data. Ensure API key is configured.</span>`;
+            } finally {
+                loadingSpinner.classList.add('hidden');
+                generateBtn.disabled = false;
+                generateBtn.classList.remove('opacity-50');
+                outputCard.classList.remove('hidden');
+            }
+        }
+    </script>
 </body>
-
 </html>
