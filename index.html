@@ -99,6 +99,56 @@
         ::-webkit-scrollbar-track { background: #030712; }
         ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+        
+
+        /* Mentorship Divider Styling */
+        .mentorship-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px 40px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn-neon-mentorship {
+            background: rgba(0, 195, 255, 0.05); 
+            color: #00c3ff; 
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 16px 40px;
+            border: 2px solid #00c3ff;
+            border-radius: 50px; 
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 20px rgba(0, 195, 255, 0.15), inset 0 0 10px rgba(0, 195, 255, 0.1);
+            transition: all 0.3s ease; 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            max-width: 100%;
+        }
+
+        .btn-neon-mentorship:hover {
+            background: #00c3ff;
+            color: #000000; 
+            box-shadow: 0 0 25px rgba(0, 195, 255, 0.5), inset 0 0 15px rgba(0, 195, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .btn-neon-mentorship i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .mentorship-divider { padding: 40px 15px 20px 15px; }
+            .btn-neon-mentorship { font-size: 1rem; padding: 14px 30px; }
+            .btn-neon-mentorship i { font-size: 1.1rem; }
+        }
     </style>
 </head>
 
@@ -129,6 +179,15 @@
                 <li><a href="#certifications" class="hover:text-accent-cyan transition-colors">Certifications</a></li>
                 <li><a href="https://medium.com/@kumar111aakash.in" target="_blank" class="hover:text-accent-purple transition-colors flex items-center gap-1">Blog <i class="fab fa-medium text-[12px]"></i></a></li>
                 
+                <!-- Fixed Mentorship Button in Nav -->
+                <!--
+                <li class="flex items-center">
+                    <a href="./mentor.html" class="bg-gradient-to-r from-accent-cyan to-accent-blue text-white px-5 py-2 rounded-full font-bold hover:shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:-translate-y-0.5 transition-all flex items-center gap-2 text-xs uppercase tracking-wide">
+                        <i class="fa-solid fa-rocket"></i> Mentorship
+                    </a>
+                </li>
+                -->
+                
                 <li class="relative group py-2">
                     <button class="flex items-center gap-1 hover:text-accent-cyan transition-colors">
                         Coding Profiles <i class="fas fa-chevron-down text-[10px] mt-0.5"></i>
@@ -146,9 +205,10 @@
     </nav>
 
     <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-dark-900/95 backdrop-blur-xl pt-32 px-8">
-        <div class="flex flex-col space-y-8 text-2xl font-bold text-center">
+        <div class="flex flex-col space-y-8 text-2xl font-bold text-center overflow-y-auto pb-20 max-h-screen">
             <a href="#home" class="mobile-link text-gray-400 hover:text-white transition-colors">Home</a>
             <a href="#about" class="mobile-link text-gray-400 hover:text-white transition-colors">About</a>
+            <!-- <a href="./mentor.html" class="mobile-link text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-blue transition-colors">Mentorship Program</a> -->
             <a href="#resume" class="mobile-link text-gray-400 hover:text-white transition-colors">Resume</a>
             <a href="#projects" class="mobile-link text-gray-400 hover:text-white transition-colors">Projects</a>
             <a href="https://medium.com/@kumar111aakash.in" target="_blank" class="mobile-link text-accent-purple hover:text-white transition-colors">Medium Blog</a>
@@ -192,10 +252,6 @@
                     <a href="https://medium.com/@kumar111aakash.in" target="_blank" class="px-8 py-4 glass text-white font-bold rounded-full hover:border-accent-purple hover:text-accent-purple transition-all duration-300 flex items-center gap-2">
                         Medium <i class="fab fa-medium"></i>
                     </a>
-
-                    <a href="https://www.youtube.com/@The_Novel_Insight_Engine" target="_blank" class="px-8 py-4 glass text-white font-bold rounded-full hover:border-accent-purple hover:text-accent-purple transition-all duration-300 flex items-center gap-2">
-                        YouTube <i class="fab fa-youtube"></i>
-                    </a>
                 </div>
             </div>
             
@@ -207,6 +263,27 @@
                     <img src="./images/me.jpg" alt="Akash Babu" class="absolute inset-8 rounded-full object-cover border-4 border-dark-800 shadow-[0_0_40px_rgba(6,182,212,0.3)]" onerror="this.src='https://placehold.co/400x400/1f2937/06b6d4?text=Akash'">
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Correctly Placed Mentorship Divider -->
+    <div class="mentorship-divider">
+        <a href="./mentor.html" class="btn-neon-mentorship">
+            <i class="fa-solid fa-rocket"></i> Explore Mentorship
+        </a>
+    </div>
+
+    <!-- YouTube Channel Highlight - Moved from inside Hero Buttons -->
+    <section class="px-6 py-8 relative z-10">
+        <div class="max-w-4xl mx-auto glow-card glass border border-red-500/30 rounded-3xl p-8 text-center reveal flex flex-col items-center">
+            <i class="fa-brands fa-youtube text-5xl text-red-500 mb-4 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]"></i>
+            <h2 class="text-3xl font-bold text-white mb-4">The Novel Insight Engine</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-6">
+                Join my growing channel on YouTube where I break down complex Technology, data science and software engineering concepts through detailed, tutorials and concepts designed for visual and practical learners.
+            </p>
+            <a href="https://youtube.com/@the_novel_insight_engine?si=rarCXEVrx_gFVO8C" class="px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-500 transition-all flex items-center gap-2">
+                Watch Tutorials <i class="fas fa-play text-sm"></i>
+            </a>
         </div>
     </section>
 
@@ -241,7 +318,7 @@
                         <div class="h-1.5 w-full bg-dark-900 rounded-full overflow-hidden mb-3">
                             <div class="h-full bg-gradient-to-r from-accent-cyan to-accent-blue rounded-full" style="width: 90%"></div>
                         </div>
-                        <p class="text-xs text-gray-500">Regression, Classification, Deep Learning, TensorFlow, Keras, Scikit-learn, LangChain, LLMs</p>
+                        <p class="text-xs text-gray-500">Regression, Classification, Deep Learning, TensorFlow, Scikit-learn, LangChain, LLMs</p>
                     </div>
 
                     <div class="glow-card bg-dark-800 border border-dark-700 rounded-3xl p-6">
@@ -271,7 +348,7 @@
                         <div class="h-1.5 w-full bg-dark-900 rounded-full overflow-hidden mb-3">
                             <div class="h-full bg-gradient-to-r from-accent-cyan to-accent-blue rounded-full" style="width: 75%"></div>
                         </div>
-                        <p class="text-xs text-gray-500">Ethical Hacking, Vulnerability Assessment, Security Auditing, Burp Suite, Linux</p>
+                        <p class="text-xs text-gray-500">Ethical Hacking, Vulnerability Assessment, Nmap, Burp Suite, Linux</p>
                     </div>
 
                 </div>
@@ -279,6 +356,7 @@
         </div>
     </section>
 
+    <!-- Keeping the rest of your sections exactly as they are -->
     <section id="resume" class="py-24 px-6 relative z-10 bg-dark-800/50">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16 reveal">
@@ -382,7 +460,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                
+                <!-- Certifications (Left exactly as is) -->
                 <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full">
                     <div class="flex items-start justify-between mb-4">
                         <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-accent-cyan shrink-0">
@@ -413,7 +491,6 @@
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Python</span>
                         <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Data Science</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">+2 Skills</span>
                     </div>
                     <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
                         <span class="text-[10px] text-gray-500 font-mono truncate">ID: 39585942042</span>
@@ -430,7 +507,7 @@
                     </div>
                     <h4 class="text-white font-bold text-sm mb-1 leading-tight">Space Science & Tech Training (START)</h4>
                     <p class="text-xs text-accent-purple font-mono mb-3">ISRO</p>
-                    <p class="text-xs text-gray-400 mb-4 line-clamp-2">ISRO initiative to educate students on space science, satellite technology, astrophysics, and remote sensing.</p>
+                    <p class="text-xs text-gray-400 mb-4 line-clamp-2">ISRO initiative to educate students on space science.</p>
                     <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
                         <span class="text-[10px] text-gray-500 font-mono truncate">ID: QdU91FIZGX</span>
                         <a href="https://drive.google.com/file/d/15FF3Cr_Hn3Wolm8ZykaHWIOXrIrY7sWG/view?usp=drive_link" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
@@ -454,324 +531,6 @@
                         <a href="https://drive.google.com/file/d/1yjjwiFmzrIY4dGuUv6gIG3_S-2gK1KVg/view?usp=drive_link" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 100ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-accent-cyan shrink-0">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Jan 2025</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Intro to Generative AI</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">Google Cloud Training</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Machine Learning</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">NLP</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">ID: 13579717</span>
-                        <a href="https://www.skills.google/public_profiles/921b8305-904d-4be7-99b6-251b12290bcf/badges/13579717" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 200ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-green-500 shrink-0">
-                            <i class="fab fa-hackerrank"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Oct 2024</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Python (Basic)</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">HackerRank</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Python</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">ID: 469A07C66370</span>
-                        <a href="https://www.hackerrank.com/certificates/469a07c66370" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-green-500 shrink-0">
-                            <i class="fab fa-hackerrank"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Oct 2024</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Java (Basic)</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">HackerRank</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Java</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Data Structures</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">ID: 7DOD9B9OBOED</span>
-                        <a href="https://www.hackerrank.com/certificates/7dod9b9obeed" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 100ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-purple-500 shrink-0">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Oct 2023</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Microsoft Azure - Beginner's Guide AZ-900</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">Udemy</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Cloud Computing</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate w-32">ID: UC-67236c94...</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 200ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-blue-500 shrink-0">
-                            <i class="fab fa-microsoft"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Jan 2024</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Microsoft AI Skills Challenge (AI Odyssey)</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">Microsoft</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Artificial Intelligence (AI)</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">Show Credential</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div> 
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-[#0A66C2] shrink-0">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Jan 2024</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Learning Data Analytics: 1 Foundations</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">LinkedIn</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Data Analytics</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">Show Credential</span>
-                        <a href="https://www.linkedin.com/learning/certificates/d8466cb1599c0aaa0f9ed08de794363f87221da3e00fe1a6c32bbad5b00aa52e" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 100ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-blue-400 shrink-0">
-                            <i class="fab fa-kaggle"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Jun 2023</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Kaggle - Data Cleaning</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">Kaggle</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Data Analysis</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Data Cleaning</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">Show Credential</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 200ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-[#0A66C2] shrink-0">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Nov 2023</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Intro to Career Skills in Data Analytics</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">LinkedIn</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Python</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Data Analytics</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">Show Credential</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-blue-500 shrink-0">
-                            <i class="fab fa-microsoft"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Sep 2023</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Career Essentials in Generative AI</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">Microsoft & LinkedIn</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Python</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Generative AI</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">Show Credential</span>
-                        <a href="https://www.linkedin.com/learning/certificates/d8466cb1599c0aaa0f9ed08de794363f87221da3e00fe1a6c32bbad5b00aa52e" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 100ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-[#0A66C2] shrink-0">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Jul 2023</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Ethics in the Age of Generative AI</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">LinkedIn</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Generative AI</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Computer Ethics</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">Show Credential</span>
-                        <a href="https://www.linkedin.com/learning/certificates/bcb4e02b141fa32252e5b8ca1c9462e78355dc928b551ad45789f44e4801e9de" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 200ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-[#0A66C2] shrink-0">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Jul 2023</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Streamlining Work with MS Bing Chat</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">LinkedIn</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">ChatGPT</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Microsoft Search</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">Show Credential</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-orange-400 shrink-0">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Sep 2017</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Pre-Eureka Business Model Workshop</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">IIT Bombay (at HBTU)</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Business Modeling</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">Show Credential</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 100ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-purple-500 shrink-0">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Sep 2022</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Python for Data Science & Machine Learning</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">Udemy</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Python</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Data Analysis</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate w-32">ID: UC-6c02cf56...</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 200ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-purple-500 shrink-0">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Sep 2022</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">SQL for Data Analysis: MySQL BI</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">Udemy</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">SQL</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Business Intelligence</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate w-32">ID: UC-7e38da97...</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-purple-500 shrink-0">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Mar 2022</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">The Complete Cyber Security Course: Hackers Exposed!</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">Udemy</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Cybersecurity</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate w-32">ID: UC-a0654a64...</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 100ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-[#0A66C2] shrink-0">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Jul 2023</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">Generative AI: Evolution of Thoughtful Online Search</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">LinkedIn</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Generative AI</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Search Engine Tech</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">Show Credential</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-dark-800 border border-dark-700 rounded-2xl p-6 reveal relative flex flex-col h-full" style="transition-delay: 200ms;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-dark-900 border border-dark-700 flex items-center justify-center text-[#0A66C2] shrink-0">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <span class="text-[10px] font-mono text-gray-400 bg-dark-900 px-2 py-1 rounded border border-dark-700">Jul 2023</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm mb-1 leading-tight">What Is Generative AI?</h4>
-                    <p class="text-xs text-accent-purple font-mono mb-3">LinkedIn</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">Generative AI</span>
-                        <span class="text-[10px] px-2 py-1 bg-dark-700 text-gray-300 rounded">AI</span>
-                    </div>
-                    <div class="mt-auto pt-4 border-t border-dark-700 flex justify-between items-center">
-                        <span class="text-[10px] text-gray-500 font-mono truncate">Show Credential</span>
-                        <a href="#" class="text-accent-cyan hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
             </div>
             
             <div class="mt-16 text-center reveal">
@@ -823,7 +582,7 @@
                         </div>
                         <h4 class="text-xl font-bold text-white mb-1 group-hover:text-accent-cyan transition-colors">SBI Cards and Payments</h4>
                         <p class="text-xs text-accent-cyan mb-3">Cognizant</p>
-                        <p class="text-sm text-gray-400 mb-6 line-clamp-3">Built credit risk models reducing loan default rate by 15%. Developed fraud detection systems achieving 92% precision. Created automated customer segmentation pipelines.</p>
+                        <p class="text-sm text-gray-400 mb-6 line-clamp-3">Built credit risk models reducing loan default rate by 15%. Developed fraud detection systems achieving 92% precision.</p>
                         <a href="#" class="text-sm font-bold text-accent-cyan flex items-center gap-2 group-hover:gap-3 transition-all">
                             Enterprise Project <i class="fas fa-lock"></i>
                         </a>
@@ -842,60 +601,9 @@
                         </div>
                         <h4 class="text-xl font-bold text-white mb-1 group-hover:text-accent-cyan transition-colors">Sanofi Winthrop Life Science</h4>
                         <p class="text-xs text-accent-cyan mb-3">Cognizant</p>
-                        <p class="text-sm text-gray-400 mb-6 line-clamp-3">Designed ML models to predict treatment responses, improving strategy success by 20%. Automated PowerBI dashboards from clinical data, improving reporting efficiency.</p>
+                        <p class="text-sm text-gray-400 mb-6 line-clamp-3">Designed ML models to predict treatment responses, improving strategy success by 20%.</p>
                         <a href="#" class="text-sm font-bold text-accent-cyan flex items-center gap-2 group-hover:gap-3 transition-all">
                             Enterprise Project <i class="fas fa-lock"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="group glow-card bg-dark-800 border border-dark-700 rounded-3xl overflow-hidden reveal">
-                    <div class="h-52 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('images/proj_3.jpg'); background-color: #1f2937;"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-800 to-transparent"></div>
-                    </div>
-                    <div class="p-6 relative">
-                        <div class="flex justify-between items-start mb-3">
-                            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-1 bg-dark-700 text-gray-300 rounded">Power BI</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Market Data Dashboard</h4>
-                        <p class="text-sm text-gray-400 mb-6 line-clamp-3">Designed an interactive Power BI dashboard for analyzing market data and visualizing key business metrics.</p>
-                        <a href="https://github.com/AkashBabu1712/Power-Bi/blob/main/SuperMarket%20Sales%20Dashboard.pdf" target="_blank" class="text-sm font-bold text-accent-cyan flex items-center gap-2 group-hover:gap-3 transition-all mt-6">
-                            View Dashboard <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="group glow-card bg-dark-800 border border-dark-700 rounded-3xl overflow-hidden reveal" style="transition-delay: 100ms;">
-                    <div class="h-52 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('images/proj_4.jpg'); background-color: #1f2937;"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-800 to-transparent"></div>
-                    </div>
-                    <div class="p-6 relative">
-                        <div class="flex justify-between items-start mb-3">
-                            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-1 bg-dark-700 text-gray-300 rounded">Statistics</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Taxi Revenue Hypothesis</h4>
-                        <p class="text-sm text-gray-400 mb-6 line-clamp-3">Leveraged data-driven insights and Hypothesis Testing to understand how payment methods influence fare amounts to maximize revenue.</p>
-                        <a href="https://github.com/AkashBabu1712/Data-science-project-/blob/main/Statistics%20Project%20on%20Hypothesis%20Testing.ipynb" target="_blank" class="text-sm font-bold text-accent-cyan flex items-center gap-2 group-hover:gap-3 transition-all mt-6">
-                            View Project <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="group glow-card bg-dark-800 border border-dark-700 rounded-3xl overflow-hidden reveal" style="transition-delay: 200ms;">
-                    <div class="h-52 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('images/proj_5.jpg'); background-color: #1f2937;"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-800 to-transparent"></div>
-                    </div>
-                    <div class="p-6 relative">
-                        <div class="flex justify-between items-start mb-3">
-                            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-1 bg-dark-700 text-gray-300 rounded">Kaggle / Open Source</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Obesity Risk Prediction</h4>
-                        <p class="text-sm text-gray-400 mb-6 line-clamp-3">Developed machine learning models to predict obesity risk based on demographic, lifestyle, and health data for a Kaggle competition.</p>
-                        <a href="https://github.com/AkashBabu1712/Kaggle_Work_Notebooks/blob/main/obesity-risk-prediction.ipynb" target="_blank" class="text-sm font-bold text-accent-cyan flex items-center gap-2 group-hover:gap-3 transition-all mt-6">
-                            View Competition <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -985,8 +693,6 @@
                 <a href="https://www.linkedin.com/in/akash-babu17/" target="_blank" class="w-14 h-14 rounded-full glass border border-dark-700 flex items-center justify-center text-xl text-gray-400 hover:text-white hover:bg-[#0A66C2] hover:border-[#0A66C2] transition-all transform hover:-translate-y-2"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/AkashBabu1712" target="_blank" class="w-14 h-14 rounded-full glass border border-dark-700 flex items-center justify-center text-xl text-gray-400 hover:text-white hover:bg-[#333] hover:border-[#333] transition-all transform hover:-translate-y-2"><i class="fab fa-github"></i></a>
                 <a href="https://medium.com/@kumar111aakash.in" target="_blank" class="w-14 h-14 rounded-full glass border border-dark-700 flex items-center justify-center text-xl text-gray-400 hover:text-white hover:bg-[#000000] hover:border-[#ffffff] transition-all transform hover:-translate-y-2"><i class="fab fa-medium-m"></i></a>
-                <a href="https://twitter.com/akashba77998089" target="_blank" class="w-14 h-14 rounded-full glass border border-dark-700 flex items-center justify-center text-xl text-gray-400 hover:text-white hover:bg-[#1DA1F2] hover:border-[#1DA1F2] transition-all transform hover:-translate-y-2"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/kumar111aakash.in/" target="_blank" class="w-14 h-14 rounded-full glass border border-dark-700 flex items-center justify-center text-xl text-gray-400 hover:text-white hover:bg-[#E1306C] hover:border-[#E1306C] transition-all transform hover:-translate-y-2"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </section>

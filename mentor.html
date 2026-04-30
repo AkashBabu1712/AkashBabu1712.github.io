@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <title>Akash Babu | Mentorship & Education</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3281/3281307.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#030712', 
+                            800: '#111827', 
+                            700: '#1f2937', 
+                        },
+                        accent: {
+                            cyan: '#06b6d4',
+                            blue: '#3b82f6',
+                            purple: '#8b5cf6'
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030712;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glow-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glow-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.2), inset 0 0 0 1px rgba(6, 182, 212, 0.5);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-accent-cyan selection:text-white">
+
+    <!-- Techy Background Blobs -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-accent-cyan/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
+        <div class="absolute top-[40%] right-[-10%] w-96 h-96 bg-accent-purple/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-accent-blue/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-6 left-0 right-0 z-50 px-4 flex justify-center transition-all duration-300">
+        <div class="glass rounded-full px-6 py-3 flex items-center justify-between w-full max-w-5xl shadow-2xl shadow-black/50">
+            <a href="index.html" class="text-gray-300 hover:text-accent-cyan transition-colors text-sm font-medium flex items-center gap-2">
+                <i class="fas fa-arrow-left"></i> Back to Main Portfolio
+            </a>
+            <a href="#contact" class="px-5 py-2 bg-gradient-to-r from-accent-cyan to-accent-blue text-white rounded-full hover:scale-105 hover:shadow-[0_0_15px_rgba(6,182,212,0.5)] transition-all text-sm font-bold flex items-center gap-2">
+                Let's Talk <i class="fas fa-paper-plane"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-24 px-6 relative">
+        <div class="max-w-4xl text-center reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-purple/10 border border-accent-purple/20 text-accent-purple text-sm font-mono mb-6">
+                <i class="fas fa-chalkboard-teacher"></i> Tech Mentorship & Education
+            </div>
+            <h1 class="text-5xl sm:text-7xl font-black tracking-tight mb-6">
+                Akash Babu <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple text-4xl sm:text-5xl mt-2 block">Data Scientist & Educator</span>
+            </h1>
+            <p class="text-gray-400 text-lg sm:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                Bridging the gap between cutting-edge industry AI and academic excellence. Empowering students with real-world engineering skills, immersive bilingual instruction, and production-ready architectures.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#methodology" class="px-8 py-4 bg-white text-dark-900 font-bold rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300">
+                    Explore My Pedagogy
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Stats Section -->
+    <section id="methodology" class="py-20 px-6 relative z-10 border-t border-dark-800 bg-dark-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                    Empathetic and results-driven Computer Science Tutor with over <span class="text-accent-cyan font-bold">3 years of experience</span>. I don't just teach code; I teach scalable systems. From data structures to machine learning, I utilize immersive lesson plans in both English and Hindi to make complex paradigms like LLMs highly accessible.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glow-card glass p-8 rounded-3xl text-center reveal">
+                    <i class="fas fa-arrow-trend-up text-4xl text-accent-cyan mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Measurable Growth</h3>
+                    <p class="text-gray-400 text-sm">Consistent 30-50% grade boosts achieved by students through personalized instruction.</p>
+                </div>
+                <div class="glow-card glass p-8 rounded-3xl text-center reveal" style="transition-delay: 100ms;">
+                    <i class="fas fa-language text-4xl text-accent-blue mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Bilingual Delivery</h3>
+                    <p class="text-gray-400 text-sm">Breaking barriers with full computer science curriculums crafted in English & Hindi.</p>
+                </div>
+                <div class="glow-card glass p-8 rounded-3xl text-center reveal" style="transition-delay: 200ms;">
+                    <i class="fas fa-server text-4xl text-accent-purple mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Production Focused</h3>
+                    <p class="text-gray-400 text-sm">Transitioning learners from academic scripts to scalable, end-to-end architectures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Promo -->
+    <section class="py-12 px-6 relative z-10">
+        <div class="max-w-4xl mx-auto glow-card glass rounded-3xl p-10 text-center border border-accent-cyan/20 reveal relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-red-500/10 rounded-full blur-[80px]"></div>
+            <i class="fab fa-youtube text-6xl text-red-500 mb-6 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]"></i>
+            <h2 class="text-3xl font-bold text-white mb-4">The Novel Insight Engine</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+                Join my growing community on YouTube where I break down complex data science and software engineering concepts through detailed tutorials designed for practical learners.
+            </p>
+            <a href="https://youtube.com/@the_novel_insight_engine?si=rarCXEVrx_gFVO8C" class="inline-flex items-center gap-2 px-8 py-3 bg-red-600/20 text-red-400 border border-red-500/50 font-bold rounded-full hover:bg-red-600 hover:text-white transition-all duration-300">
+                Watch Tutorials <i class="fas fa-play"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Verified Expertise -->
+    <section class="py-20 px-6 relative z-10 bg-dark-800/30 border-y border-dark-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-mono text-accent-purple tracking-widest uppercase mb-2">Qualifications</h2>
+                <h3 class="text-4xl font-bold text-white">Verified <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-accent-cyan">Expertise</span></h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Cert 1 -->
+                <div class="glow-card bg-dark-900 border border-dark-700 p-6 rounded-2xl reveal">
+                    <div class="text-3xl text-accent-cyan mb-4"><i class="fab fa-google"></i></div>
+                    <h4 class="text-white font-bold mb-1">AI Agents Intensive</h4>
+                    <p class="text-xs font-mono text-gray-500 mb-4">Google / Kaggle</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li class="flex gap-2"><i class="fas fa-check-circle text-accent-cyan mt-1"></i> GenAI Architectures</li>
+                        <li class="flex gap-2"><i class="fas fa-check-circle text-accent-cyan mt-1"></i> Autonomous Agents</li>
+                    </ul>
+                </div>
+                <!-- Cert 2 -->
+                <div class="glow-card bg-dark-900 border border-dark-700 p-6 rounded-2xl reveal" style="transition-delay: 100ms;">
+                    <div class="text-3xl text-accent-blue mb-4"><i class="fas fa-shield-alt"></i></div>
+                    <h4 class="text-white font-bold mb-1">Cybersecurity Analyst</h4>
+                    <p class="text-xs font-mono text-gray-500 mb-4">Tata Group</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li class="flex gap-2"><i class="fas fa-check-circle text-accent-blue mt-1"></i> Threat Detection</li>
+                        <li class="flex gap-2"><i class="fas fa-check-circle text-accent-blue mt-1"></i> Network Security</li>
+                    </ul>
+                </div>
+                <!-- Cert 3 -->
+                <div class="glow-card bg-dark-900 border border-dark-700 p-6 rounded-2xl reveal" style="transition-delay: 200ms;">
+                    <div class="text-3xl text-orange-500 mb-4"><i class="fas fa-rocket"></i></div>
+                    <h4 class="text-white font-bold mb-1">Space Tech Program</h4>
+                    <p class="text-xs font-mono text-gray-500 mb-4">ISRO</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li class="flex gap-2"><i class="fas fa-check-circle text-orange-500 mt-1"></i> Scientific Data Analysis</li>
+                        <li class="flex gap-2"><i class="fas fa-check-circle text-orange-500 mt-1"></i> Remote Sensing</li>
+                    </ul>
+                </div>
+                <!-- Cert 4 -->
+                <div class="glow-card bg-dark-900 border border-dark-700 p-6 rounded-2xl reveal" style="transition-delay: 300ms;">
+                    <div class="text-3xl text-accent-purple mb-4"><i class="fab fa-microsoft"></i></div>
+                    <h4 class="text-white font-bold mb-1">Cloud Credentials</h4>
+                    <p class="text-xs font-mono text-gray-500 mb-4">Microsoft / HackerRank</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li class="flex gap-2"><i class="fas fa-check-circle text-accent-purple mt-1"></i> Advanced Python/SQL</li>
+                        <li class="flex gap-2"><i class="fas fa-check-circle text-accent-purple mt-1"></i> Cloud Fundamentals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentorship Focus -->
+    <section class="py-20 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-mono text-accent-blue tracking-widest uppercase mb-2">Curriculum</h2>
+                <h3 class="text-4xl font-bold text-white">What We <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-cyan">Build Together</span></h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Stack -->
+                <div class="glow-card glass p-8 rounded-3xl reveal">
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i class="fas fa-layer-group text-accent-cyan"></i> Core Stack
+                    </h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex gap-3">
+                            <i class="fas fa-terminal text-accent-cyan mt-1"></i>
+                            <div><strong>Foundational Logic:</strong> Advanced DSA in C/C++ and Python.</div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fas fa-brain text-accent-cyan mt-1"></i>
+                            <div><strong>Modern AI:</strong> PyTorch, Scikit-learn, and Deep Learning paradigms.</div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fas fa-robot text-accent-cyan mt-1"></i>
+                            <div><strong>Agentic Frameworks:</strong> LangChain, CrewAI, Prompt Engineering.</div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fas fa-cloud text-accent-cyan mt-1"></i>
+                            <div><strong>DevOps:</strong> FastAPI, AWS, Docker, and CI/CD pipelines.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Projects -->
+                <div class="glow-card glass p-8 rounded-3xl reveal" style="transition-delay: 100ms;">
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i class="fas fa-laptop-code text-accent-blue"></i> Capstone Projects
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-6">I treat career growth as an engineering challenge. Example projects mentees build:</p>
+                    
+                    <div class="border-l-2 border-accent-blue pl-4 mb-6">
+                        <h4 class="text-white font-bold">Enterprise Phishing Agent Analyzer</h4>
+                        <p class="text-sm text-gray-400 mt-1 mb-2">Bridging Data Science and Cybersecurity to detect advanced threats.</p>
+                        <div class="flex gap-2">
+                            <span class="text-[10px] font-mono bg-dark-700 text-accent-cyan px-2 py-1 rounded">LangChain</span>
+                            <span class="text-[10px] font-mono bg-dark-700 text-accent-cyan px-2 py-1 rounded">CrewAI</span>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-accent-blue pl-4">
+                        <h4 class="text-white font-bold">Atmospheric Physics AI</h4>
+                        <p class="text-sm text-gray-400 mt-1 mb-2">Predictive modeling on large-scale environmental datasets.</p>
+                        <div class="flex gap-2">
+                            <span class="text-[10px] font-mono bg-dark-700 text-accent-cyan px-2 py-1 rounded">PyTorch</span>
+                            <span class="text-[10px] font-mono bg-dark-700 text-accent-cyan px-2 py-1 rounded">Data Eng</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section id="contact" class="py-24 px-6 relative z-10 border-t border-dark-800 text-center bg-gradient-to-b from-transparent to-dark-900">
+        <div class="max-w-3xl mx-auto reveal">
+            <h2 class="text-4xl font-bold text-white mb-4">Ready to Level Up?</h2>
+            <p class="text-gray-400 mb-10 text-lg">
+                Whether you are preparing for competitive exams, technical interviews, or looking to build production-ready projects, let's connect.
+            </p>
+            <a href="mailto:kumar111aakash.in@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-dark-900 font-bold rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 mb-10">
+                Email Me Directly <i class="fas fa-paper-plane"></i>
+            </a>
+            
+            <div class="flex justify-center gap-4">
+                <a href="https://www.linkedin.com/in/akash-babu17/" target="_blank" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:border-accent-cyan transition-all"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/AkashBabu1712" target="_blank" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:border-accent-cyan transition-all"><i class="fab fa-github"></i></a>
+                <a href="https://youtube.com/@the_novel_insight_engine?si=rarCXEVrx_gFVO8C" target="_blank" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 transition-all"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-6 border-t border-dark-800 bg-dark-900 text-center relative z-10">
+        <p class="text-gray-500 text-sm font-mono">
+            &copy; 2026 Akash Babu. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation 
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+        const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
