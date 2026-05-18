@@ -55,101 +55,9 @@
             }
         }
     </script>
-
-    <style>
-        body {
-            background-color: #030712;
-            color: #f3f4f6;
-            overflow-x: hidden;
-        }
-
-        .glass {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .glow-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glow-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(6, 182, 212, 0.2), inset 0 0 0 1px rgba(6, 182, 212, 0.5);
-        }
-
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s step-end infinite;
-            color: #06b6d4;
-        }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #030712; }
-        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 5px; }
-        ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
-        
-
-        /* Mentorship Divider Styling */
-        .mentorship-divider {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 60px 20px 40px 20px;
-            width: 100%;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 10;
-        }
-
-        .btn-neon-mentorship {
-            background: rgba(0, 195, 255, 0.05); 
-            color: #00c3ff; 
-            font-family: inherit;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 16px 40px;
-            border: 2px solid #00c3ff;
-            border-radius: 50px; 
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            box-shadow: 0 0 20px rgba(0, 195, 255, 0.15), inset 0 0 10px rgba(0, 195, 255, 0.1);
-            transition: all 0.3s ease; 
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            max-width: 100%;
-        }
-
-        .btn-neon-mentorship:hover {
-            background: #00c3ff;
-            color: #000000; 
-            box-shadow: 0 0 25px rgba(0, 195, 255, 0.5), inset 0 0 15px rgba(0, 195, 255, 0.3);
-            transform: translateY(-4px);
-        }
-
-        .btn-neon-mentorship i {
-            font-size: 1.2rem;
-        }
-
-        @media (max-width: 768px) {
-            .mentorship-divider { padding: 40px 15px 20px 15px; }
-            .btn-neon-mentorship { font-size: 1rem; padding: 14px 30px; }
-            .btn-neon-mentorship i { font-size: 1.1rem; }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="./css/styles.css">
+    
 </head>
 
 <body class="antialiased selection:bg-accent-cyan selection:text-white">
@@ -277,17 +185,17 @@
     <section class="px-6 py-8 relative z-10">
         <div class="max-w-4xl mx-auto glow-card glass border border-red-500/30 rounded-3xl p-8 text-center reveal flex flex-col items-center">
             <i class="fa-brands fa-youtube text-5xl text-red-500 mb-4 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]"></i>
-            <h2 class="text-3xl font-bold text-white mb-4">The Novel Insight Engine</h2>
+            <h2 class="text-3xl font-bold text-white mb-4">Akashic Bytes</h2>
             <p class="text-gray-400 max-w-2xl mx-auto mb-6">
                 Join my growing channel on YouTube where I break down complex Technology, data science and software engineering concepts through detailed, tutorials and concepts designed for visual and practical learners.
             </p>
-            <a href="https://youtube.com/@the_novel_insight_engine?si=rarCXEVrx_gFVO8C" class="px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-500 transition-all flex items-center gap-2">
+            <a href="https://youtube.com/@akashic_bytes?si=rarCXEVrx_gFVO8C" class="px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-500 transition-all flex items-center gap-2">
                 Watch Tutorials <i class="fas fa-play text-sm"></i>
             </a>
         </div>
     </section>
 
-    <section id="about" class="py-24 px-6 relative z-10">
+    <!-- <section id="about" class="py-24 px-6 relative z-10">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-sm font-mono text-accent-cyan tracking-widest uppercase mb-2">Get to know me</h2>
@@ -357,7 +265,7 @@
     </section>
 
     <!-- Keeping the rest of your sections exactly as they are -->
-    <section id="resume" class="py-24 px-6 relative z-10 bg-dark-800/50">
+    <!-- <section id="resume" class="py-24 px-6 relative z-10 bg-dark-800/50">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-sm font-mono text-accent-purple tracking-widest uppercase mb-2">My Journey</h2>
@@ -449,7 +357,35 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section>-->
+
+    <section id="resume" class="py-24 px-6 relative z-10 border-y border-dark-800 bg-dark-800/30">
+    <div class="max-w-5xl mx-auto reveal">
+        
+        <div class="glow-card glass p-10 md:p-16 rounded-[3rem] text-center relative overflow-hidden border border-accent-cyan/30">
+            
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-cyan/20 rounded-full blur-[100px] pointer-events-none"></div>
+            
+            <h2 class="text-sm font-mono text-accent-cyan tracking-widest uppercase mb-4 relative z-10">
+                <i class="fas fa-sparkles"></i> Beyond the PDF
+            </h2>
+            
+            <h3 class="text-4xl md:text-6xl font-black text-white mb-6 relative z-10">
+                Explore My <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple">Interactive Resume</span>
+            </h3>
+            
+            <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto relative z-10">
+                Step into a fully immersive experience. View my dual-profile as a Data Scientist and CS Mentor, complete with visual metrics, skill timelines, and direct PDF downloads.
+            </p>
+            
+            <a href="resume.html" class="relative z-10 inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-accent-blue to-accent-cyan text-white font-bold text-lg rounded-full shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:shadow-[0_0_50px_rgba(6,182,212,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
+                Launch Experience <i class="fas fa-rocket"></i>
+            </a>
+            
+        </div>
+
+    </div>
+</section>
 
     <section id="certifications" class="py-24 px-6 relative z-10 bg-dark-900">
         <div class="max-w-7xl mx-auto">
